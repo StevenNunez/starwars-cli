@@ -3,3 +3,4 @@ require 'bundler'
 Bundler.require
 
 require_relative '../lib/star_wars_api'
+require_relative '../lib/character'
