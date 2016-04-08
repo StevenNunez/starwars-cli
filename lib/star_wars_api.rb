@@ -8,6 +8,9 @@ class StarWarsApi
       results << parsed["results"]
       url = parsed["next"]
     end while parsed["next"]
-    results.flatten
+    results.flatten!
+
+    return results unless block_given?
+    results.map {|result| yield(result)}
   end
 end

@@ -1,3 +1,13 @@
 require_relative '../config/environment'
 
-StarWarsApi.get_characters
+explosion = StarWarsApi.get_characters
+
+characters = StarWarsApi.get_characters do |character_hash|
+  Character.new_from_api(character_hash)
+end
+
+skin_color = StarWarsApi.get_characters do |character_hash|
+  character_hash["skin_color"]
+end
+
+binding.pry
